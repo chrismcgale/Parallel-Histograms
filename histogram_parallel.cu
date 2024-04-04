@@ -1,4 +1,4 @@
-__global__ void histo_kernel(char *data, unsigned int length, unsigned int *histo) {
+__global__ void parallel_histogram_kernel(char *data, unsigned int length, unsigned int *histo) {
     unsigned int i = blockIdx.x*blockDim.x + threadIdx.x;
     if (i < length) {
         int alphabet_pos = data[i] - 'a';

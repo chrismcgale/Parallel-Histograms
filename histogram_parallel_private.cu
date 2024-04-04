@@ -1,4 +1,4 @@
-__global__ void histo_kernel(char *data, unsigned int length, unsigned int *histo) {
+__global__ void parallel_private_histogram_kernel(char *data, unsigned int length, unsigned int *histo) {
     __shared__ unsigned int histo_s[NUM_BINS]
     for (unsigned int bin = threadIdx.x; bin < NUM_BINS; bin += blockDim.x) {
         histo_s[bin] = 0u;
